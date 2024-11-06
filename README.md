@@ -11,7 +11,7 @@ Here's how I personally got the Visual Studio Code Flatpak to play nicely with m
     ```
     systemctl --user enable --now podman.socket
     ```
-3. Override the VSC flatpak permissiosn to allow it to use Podman:
+3. Override the VSC flatpak permissions to allow it to use Podman:
 
     ```
     flatpak override --user com.visualstudio.code --filesystem=xdg-run/podman
