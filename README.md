@@ -49,8 +49,8 @@ Here's how I personally got the Visual Studio Code Flatpak to play nicely with m
         "postCreateCommand": "pip3 install -r /tmp/requirements.txt",
     
         "runArgs": ["--userns=keep-id"],
-        "containerUser": "${localEnv:USER}",
-        "remoteUser": "${localEnv:USER}",
+        "containerUser": "vscode",
+        "remoteUser": "vscode",
         "securityOpt": ["label=disable"]
     }
     ```
@@ -61,7 +61,7 @@ Here's how I personally got the Visual Studio Code Flatpak to play nicely with m
     FROM docker.io/python:3.12-slim-bookworm
     COPY requirements.txt /tmp
     RUN <<EOF
-        useradd -m -u 1000 tiffany
+        useradd -m -u 1000 vscode
         apt-get update
         apt-get install -y git build-essential
         python3 -m pip config set global.break-system-packages true
