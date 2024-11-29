@@ -45,9 +45,7 @@ Here's how I personally got the Visual Studio Code Flatpak to play nicely with m
                     "njpwerner.autodocstring"
                 ]
             }
-        },
-        "postCreateCommand": "pip3 install -r /tmp/requirements.txt",
-    
+        },   
         "runArgs": ["--userns=keep-id"],
         "containerUser": "vscode",
         "remoteUser": "vscode",
@@ -65,6 +63,7 @@ Here's how I personally got the Visual Studio Code Flatpak to play nicely with m
         apt-get update
         apt-get install -y git build-essential
         python3 -m pip config set global.break-system-packages true
+        pip3 install -r /tmp/requirements.txt
     EOF
     ```
     Again, relevant to this is the addition of a UID 1000 user that matches my host system login.
